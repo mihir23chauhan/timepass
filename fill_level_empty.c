@@ -5,31 +5,39 @@
 
 void find_moves(int p, int q){
     float ratio=p/q;
-    char ans[]="";
+    int power_num=1;
+    int power=0;
+    while(power_num<q){
+        power_num*=2;
+        power+=1;
+    }
+    power=power-1;
+    char ans[2*power];
     char L="L";
     char E="E";
     char F="F";
+    int i=0;
     while(1){
         if(ratio>0.5){
-        
-            strncat(ans, &L, 1);
-            strncat(ans, &F, 1);
-             
+            ans[i]=L;
+            ans[i+1]=F;
+            i=i+2;
             ratio=(2*ratio)-1;
         }else if(ratio<0.5){
-            
-            strncat(ans, &L, 1);
-            strncat(ans, &E, 1);
+            ans[i]=L;
+            ans[i+1]=E;
+            i=i+2;
             ratio=2*ratio;
         }else{
-            
-            strncat(ans, &L, 1);
-            strncat(ans, &F, 1);
+            ans[i]=L;
+            ans[i+1]=F;
+            i=i+2;
             break;
         }
     }
-    strrev(ans);
-    printf("%s\n",ans);
+    for(int k=(2*power)-1; k>=0; k--){
+        printf("%s",ans[k]);
+    }
     
 
 }
