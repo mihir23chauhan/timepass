@@ -12,10 +12,10 @@ void find_moves(int p, int q){
         power+=1;
     }
     power=power-1;
-    char ans[2*power];
-    char L="L";
-    char E="E";
-    char F="F";
+    const char* ans[2*power];
+    const char* L="L";
+    const char* E="E";
+    const char* F="F";
     int i=0;
     while(1){
         if(ratio>0.5){
